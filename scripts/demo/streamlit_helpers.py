@@ -58,7 +58,7 @@ def load_model(model):
     model.cuda()
 
 
-lowvram_mode = False
+lowvram_mode = True
 
 
 def set_lowvram_mode(mode):
@@ -877,7 +877,7 @@ def save_video_as_grid_and_mp4(
 
         writer.release()
 
-        video_path_h264 = video_path[:-4] + "_h264.mp4"
+        video_path_h264 = video_path[:-4] + ".mp4"
         os.system(f"ffmpeg -i {video_path} -c:v libx264 {video_path_h264}")
 
         with open(video_path_h264, "rb") as f:
